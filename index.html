@@ -7,23 +7,103 @@
     <title>eksempel 1</title>
 </head>
 <style>
+    #flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #HKB1 {
+        text-align: center;
+    }
+
+    body {
+        margin-left: 20px;
+    }
+
+    .card {
+        background-color: lightgray;
+        width: 500px;
+        margin: 10px;
+        border: 1px solid darkgray;
+    }
+
+    .header {
+        color: white;
+        text-align: center;
+        font-size: x-large;
+        padding: 1% 0;
+        border: 1px solid gray;
+        user-select: none;
+    }
+
     .green {
-        color: green;
-        padding: 4px;
-        border: 3px;
+        background-color: green;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .yellow {
+        background-color: rgb(233, 190, 47);
+    }
+
+    .black {
+        background-color: black;
+    }
+
+    p {
+        margin-left: 10px;
     }
 </style>
 
 <body>
-    <button>ingen layout</button>
-    <button>vertical layout</button>
-    <button>horizontal layout</button>
-    <button>grid layout</button>
-
-    <h1>Eksempel 1</h1>
-    <h2 class="green">Verktøy</h2>
     <div>
-        De to viktigste verktøyene vi skal bruke er disse:
+        <button id="0layout">ingen layout</button>
+        <button id="row">vertical layout</button>
+        <button>horizontal layout</button>
+        <button>grid layout</button>
+    </div>
+    <div>
+
+        <h1>Eksempel 1</h1>
+        <div class="card">
+            <div onclick="showverktøy()" class="header green">Verktøy</div>
+            <div id="Verktøy"></div>
+        </div>
+        <div class="card">
+            <div onclick="showHTML()" class="blue header">HTML</div>
+            <div id="HTML"></div>
+
+
+        </div>
+        <div class="card">
+            <div onclick="showCSS()" class="red header">CSS</div>
+            <div id="CSS"></div>
+        </div>
+        <div class="card">
+            <div onclick="showJavascript()" class="yellow header">Javascript</div>
+            <div id="JavaScript"></div>
+        </div>
+        <div class="card">
+            <div onclick="showHodeKropBen()" class="black header">Hode, kropp og ben</div>
+            <div id="HodeKropBen"></div>
+
+        </div>
+
+    </div>
+
+
+    </div>
+    <script>
+        function showverktøy() {
+            hideOthers()
+            document.getElementById('Verktøy').innerHTML = /*HTML*/`         
+            <p>De to viktigste verktøyene vi skal bruke er disse:</p>
         <ul>
             <li>
                 Koderedigeringsprogrammet <a href="https://code.visualstudio.com/" target="new">Visual Studio Code</a>
@@ -36,11 +116,12 @@
                 </ul>
             </li>
             <li>Nettleseren <a href="https://www.google.com/intl/no/chrome/" target="new">Google Chrome</a></li>
-        </ul>
-    </div>
-    <h2>HTML</h2>
-    <div>
-        Vi bruker HTML til å definere et dokument.
+        </ul>`;
+        }
+        function showHTML() {
+            hideOthers()
+            document.getElementById('HTML').innerHTML = /*HTML*/`         
+            <p>Vi bruker HTML til å definere et dokument.</p>
         <ul>
             <li>Tagger for grunnleggende oppsett av en HTML-fil</li>
             <li>Tagger for grunnleggende formatering av tekst</li>
@@ -50,14 +131,12 @@
             <li><a href="https://www.w3schools.com/html/default.asp" target="new">W3Schools HTML Tutorial</a></li>
             <li><a href="https://www.w3schools.com/tags/default.asp" target="new">W3Schools HTML Reference</a></li>
             </li>
-        </ul>
-
-
-    </div>
-    <h2>CSS</h2>
-    <div>
-        Vi bruker CSS til å style et dokument, altså farger, fonter, utseende og lignende.
-        <ul>
+        </ul>`;
+        }
+        function showCSS() {
+            hideOthers()
+            document.getElementById('CSS').innerHTML = /*HTML*/`         <p>Vi bruker CSS til å style et dokument, altså farger, fonter, utseende og lignende.</p>
+            <ul>
             <li><tt>background-color</tt></li>
             <li><tt>color</tt></li>
             <li><tt>padding</tt></li>
@@ -69,12 +148,13 @@
             <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="new">Grid</a></li>
             <li><a href="https://www.w3schools.com/css/default.asp" target="new">W3Schools CSS Tutorial</a></li>
             <li><a href="https://www.w3schools.com/cssref/default.asp" target="new">W3Schools CSS Reference</a></li>
-        </ul>
-    </div>
-    <h2>Javascript</h2>
-    <div>
-        Det viktigste vi skal lære er programmeringsspråket JavaScript. Vi skal lære grunnleggende programmering ved
-        å manipulere HTML- og CSS-kode på en nettside ved hjelp av JavaScript.
+        </ul>`;
+        }
+        function showJavascript() {
+            hideOthers()
+            document.getElementById('JavaScript').innerHTML = /*HTML*/`        
+            <p>Det viktigste vi skal lære er programmeringsspråket JavaScript. Vi skal lære grunnleggende programmering ved
+            å manipulere HTML- og CSS-kode på en nettside ved hjelp av JavaScript.</p>
         <ul>
 
             <li>Det finnes en W3Schools JavaScript Tutorial, men her anbefaler vi heller å følge kurset vårt på Moodle.
@@ -82,27 +162,42 @@
             <li><a href="https://www.w3schools.com/jsref/default.asp" target="new">W3Schools JavaScript Reference</a>
             </li>
 
-        </ul>
-        <h2>Hode, kropp og ben</h2>
-        <div>
-            <div>
-                <button>◀</button>
-                <img src="img/head1.png">
-                <button>▶</button>
-            </div>
-            <div>
-                <button>◀</button>
-                <img src="img/body1.png">
-                <button>▶</button>
-            </div>
-            <div>
-                <button>◀</button>
-                <img src="img/legs1.png">
-                <button>▶</button>
-            </div>
+        </ul>`;
+        }
+        function showHodeKropBen() {
+            hideOthers()
 
+            console.log('dfghjk')
+
+            document.getElementById('HodeKropBen').innerHTML = /*HTML*/`
+
+        <div id="HKB1">
+            <button>◀</button>
+            <img src="img/head1.png">
+            <button>▶</button>
         </div>
-    </div>
+        <div id="HKB1">
+            <button>◀</button>
+            <img src="img/body1.png">
+            <button>▶</button>
+        </div>
+        <div id="HKB1">
+            <button>◀</button>
+            <img src="img/legs1.png">
+            <button>▶</button>
+        </div> `;
+        }
+        function hideOthers() {
+            document.getElementById('HodeKropBen').innerHTML = '';
+            document.getElementById('JavaScript').innerHTML = '';
+            document.getElementById('CSS').innerHTML = '';
+            document.getElementById('HTML').innerHTML = '';
+            document.getElementById('Verktøy').innerHTML = '';
+        }
+        function nolayout() {
+
+        }
+    </script>
 
 
 </body>
