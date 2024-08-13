@@ -12,7 +12,7 @@
         flex-direction: column;
     }
 
-    #HKB1 {
+    .container>div {
         text-align: center;
     }
 
@@ -171,17 +171,17 @@
 
             document.getElementById('HodeKropBen').innerHTML = /*HTML*/`
 
-        <div id="HKB1">
-            <button>◀</button>
+        <div class="container" id="numbersandbuttons">
+            <button onclick="showHead4()">◀</button>
             <img src="img/head1.png">
-            <button>▶</button>
+            <button onclick="showHead2()">▶</button>
         </div>
-        <div id="HKB1">
+        <div class="container" id="numbersandbuttons2">
             <button>◀</button>
             <img src="img/body1.png">
             <button>▶</button>
         </div>
-        <div id="HKB1">
+        <div class="container" id="numbersandbuttons3">
             <button>◀</button>
             <img src="img/legs1.png">
             <button>▶</button>
@@ -197,12 +197,36 @@
         function nolayout() {
 
         }
+        function showHead1() {
+            document.getElementById('numbersandbuttons').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showHead4()">◀</button>
+            <img src="img/head1.png">
+            <button onclick="showHead2()">▶</button>
+        </div>`;
+        }
         function showHead2() {
             document.getElementById('numbersandbuttons').innerHTML = /*HTML*/` 
-            <div id="HKB1">
-            <button>◀</button>
-            <img src="img/head1.png">
-            <button>▶</button>
+            <div id="container">
+            <button onclick="showHead1()">◀</button>
+            <img src="img/head2.png">
+            <button onclick="showHead3()">▶</button>
+        </div>`;
+        }
+        function showHead3() {
+            document.getElementById('numbersandbuttons').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showHead2()">◀</button>
+            <img src="img/head3.png">
+            <button onclick="showHead4()">▶</button>
+        </div>`;
+        }
+        function showHead4() {
+            document.getElementById('numbersandbuttons').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showHead3()">◀</button>
+            <img src="img/head4.png">
+            <button onclick="showHead1()">▶</button>
         </div>`;
         }
     </script>
