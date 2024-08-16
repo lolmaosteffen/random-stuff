@@ -17,6 +17,8 @@
     }
 
     body {
+        display: flex;
+        flex-direction: row;
         margin-left: 20px;
     }
 
@@ -62,13 +64,13 @@
 </style>
 
 <body>
-    <div>
-        <button id="0layout">ingen layout</button>
-        <button id="row">vertical layout</button>
-        <button>horizontal layout</button>
-        <button>grid layout</button>
-    </div>
-    <div>
+    <div id="layoutBoss">
+        <div>
+            <button onclick="nolayout()">ingen layout</button>
+            <button onclick="VerticalLayout()">vertical layout</button>
+            <button onclick="horizontalLayout()">horizontal layout</button>
+            <button onclick="gridLayout()">grid layout</button>
+        </div>
 
         <h1>Eksempel 1</h1>
         <div class="card">
@@ -177,14 +179,14 @@
             <button onclick="showHead2()">▶</button>
         </div>
         <div class="container" id="numbersandbuttons2">
-            <button>◀</button>
+            <button onclick="showBody4()">◀</button>
             <img src="img/body1.png">
-            <button>▶</button>
+            <button onclick="showBody2()">▶</button>
         </div>
         <div class="container" id="numbersandbuttons3">
-            <button>◀</button>
+            <button onclick="showLegs4()">◀</button>
             <img src="img/legs1.png">
-            <button>▶</button>
+            <button onclick="showLegs2()">▶</button>
         </div> `;
         }
         function hideOthers() {
@@ -193,9 +195,6 @@
             document.getElementById('CSS').innerHTML = '';
             document.getElementById('HTML').innerHTML = '';
             document.getElementById('Verktøy').innerHTML = '';
-        }
-        function nolayout() {
-
         }
         function showHead1() {
             document.getElementById('numbersandbuttons').innerHTML = /*HTML*/` 
@@ -228,6 +227,90 @@
             <img src="img/head4.png">
             <button onclick="showHead1()">▶</button>
         </div>`;
+        }
+        function showBody1() {
+            document.getElementById('numbersandbuttons2').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showBody4()">◀</button>
+            <img src="img/body1.png">
+            <button onclick="showBody2()">▶</button>
+        </div>`;
+        }
+        function showBody2() {
+            document.getElementById('numbersandbuttons2').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showBody1()">◀</button>
+            <img src="img/body2.png">
+            <button onclick="showBody3()">▶</button>
+        </div>`;
+        }
+        function showBody3() {
+            document.getElementById('numbersandbuttons2').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showBody2()">◀</button>
+            <img src="img/body3.png">
+            <button onclick="showBody4()">▶</button>
+        </div>`;
+        }
+        function showBody4() {
+            document.getElementById('numbersandbuttons2').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showBody3()">◀</button>
+            <img src="img/body4.png">
+            <button onclick="showBody1()">▶</button>
+        </div>`;
+        }
+        function showLegs1() {
+            document.getElementById('numbersandbuttons3').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showLegs4()">◀</button>
+            <img src="img/legs1.png">
+            <button onclick="showLegs2()">▶</button>
+        </div>`;
+        }
+        function showLegs2() {
+            document.getElementById('numbersandbuttons3').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showLegs1()">◀</button>
+            <img src="img/legs2.png">
+            <button onclick="showLegs3()">▶</button>
+        </div>`;
+        }
+        function showLegs3() {
+            document.getElementById('numbersandbuttons3').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showLegs2()">◀</button>
+            <img src="img/legs3.png">
+            <button onclick="showLegs4()">▶</button>
+        </div>`;
+        }
+        function showLegs4() {
+            document.getElementById('numbersandbuttons3').innerHTML = /*HTML*/` 
+            <div id="container">
+            <button onclick="showLegs3()">◀</button>
+            <img src="img/legs4.png">
+            <button onclick="showLegs1()">▶</button>
+        </div>`;
+        }
+        function nolayout() {
+            document.getElementById("layoutBoss").style.display = 'flex';
+            document.getElementById("layoutBoss").style.flexDirection = 'column';
+        }
+        function VerticalLayout() {
+            document.getElementById("layoutBoss").style.display = 'flex';
+            document.getElementById("layoutBoss").style.flexDirection = 'column-reverse';
+        }
+        function horizontalLayout() {
+            document.getElementById("layoutBoss").style.display = 'flex';
+            document.getElementById("layoutBoss").style.flexDirection = 'row';
+            document.getElementById("layoutBoss").style.flexWrap = 'wrap';
+        }
+        function gridLayout() {
+            document.getElementById("layoutBoss").style.display = 'grid';
+            document.getElementById("layoutBoss").style.gridTemplateColumns = 'repeat(2, 1fr)';
+            document.getElementById("layoutBoss").style.gridGap = '10px';
+            document.getElementById("layoutBoss").style.gridColumnEnd = 'auto';
+
         }
     </script>
 
